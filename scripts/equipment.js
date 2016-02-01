@@ -3,37 +3,58 @@ var weapons = {
 	dagger: {
 		id:"dagger",
 		name:"Dagger",
-		damage:4,
+		damage:1,
 		bonus:0,
 		cost:100
 	},
 	shortSword: {
 		id:"shortSword",
 		name:"Short Sword",
-		damage:6,
+		damage:2,
 		bonus:0,
 		cost:200
+	},
+	cutlass:{
+		id:"cutlass",
+		name:"Cutlass",
+		damage:3,
+		bonus:0,
+		cost:300
+	},
+	rapier:{
+		id:"rapier",
+		name:"Rapier",
+		damage:4,
+		bonus:0,
+		cost:400
 	},
 	longSword:{
 		id:"longSword",
 		name:"Long Sword",
-		damage:8,
+		damage:5,
 		bonus:0,
-		cost:300
+		cost:500
+	},
+	scimitar:{
+		id:"scimitar",
+		name:"Scimitar",
+		damage:6,
+		bonus:0,
+		cost:600
 	},
 	bastardSword:{
 		id:"bastardSword",
 		name:"Bastard Sword",
-		damage:10,
+		damage:7,
 		bonus:0,
-		cost:400
+		cost:700
 	},
 	greatSword:{
 		id:"greatSword",
 		name:"Great Sword",
-		damage:12,
+		damage:8,
 		bonus:0,
-		cost:500
+		cost:800
 	}
 }
 
