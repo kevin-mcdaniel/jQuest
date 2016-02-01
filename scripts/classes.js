@@ -27,7 +27,7 @@ var profession = {
 		startingArmor:"paddedArmor",
 		startingWand:"mahoganyWand",
 		startingSymbol:"steelSymbol",
-		startingAccessory:"bronze"
+		startingAccessory:"bronzeRing"
 	},
 	paladin:{
 		name:"Paladin",
