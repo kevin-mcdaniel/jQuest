@@ -7,7 +7,12 @@ var profession = {
 		dexterity:1,
 		toughness:2,
 		willpower: 0,
-		mental: 0
+		mental: 0,
+		startingWeapon: "longSword",
+		startingArmor:"chainArmor",
+		startingWand:"firWand",
+		startingSymbol:"woodSymbol",
+		startingAccessory:"copperRing"
 	},
 	healer:{
 		name:"Healer",
@@ -17,7 +22,12 @@ var profession = {
 		dexterity:0,
 		toughness:1,
 		willpower: 3,
-		mental: 1
+		mental: 1,
+		startingWeapon: "dagger",
+		startingArmor:"paddedArmor",
+		startingWand:"mahoganyWand",
+		startingSymbol:"steelSymbol",
+		startingAccessory:"bronze"
 	},
 	paladin:{
 		name:"Paladin",
@@ -27,7 +37,12 @@ var profession = {
 		dexterity:0,
 		toughness:1,
 		willpower: 2,
-		mental: 0
+		mental: 0,
+		startingWeapon: "cutlass",
+		startingArmor:"hideArmor",
+		startingWand:"firWand",
+		startingSymbol:"bronzeSymbol",
+		startingAccessory:"copperRing"
 	},
 	thief:{
 		name:"Thief",
@@ -37,7 +52,12 @@ var profession = {
 		dexterity:3,
 		toughness:1,
 		willpower: 0,
-		mental: 0
+		mental: 0,
+		startingWeapon: "rapier",
+		startingArmor:"leatherArmor",
+		startingWand:"oakWand",
+		startingSymbol:"copper",
+		startingAccessory:"bronzeRing"
 	},
 	wizard:{
 		name:"Wizard",
@@ -47,6 +67,11 @@ var profession = {
 		dexterity:0,
 		toughness:1,
 		willpower: 1,
-		mental: 3
+		mental: 3,
+		startingWeapon: "dagger",
+		startingArmor:"clothArmor",
+		startingWand:"obsidianWand",
+		startingSymbol:"copperSymbol",
+		startingAccessory:"steelRing"
 	}
 }
