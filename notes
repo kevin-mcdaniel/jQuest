@@ -1,0 +1,47 @@
+function EntityTemplate(){
+	this.attributes = { 
+		strength: 1,
+		dexterity: 1,
+		toughness: 1,
+		willpower: 1,
+		mental: 1
+	};
+	this.equipment = {
+		armor : {},
+		weapon : {},
+		wand: {},
+		holySymbol: {},
+		accessory: {},
+		gold: 0
+	};
+	this.combat = {
+		initiative: 0,
+		physcialAttack:0,
+		magicAttack:0,
+		physicalDamage:0,
+		magicDamage:0,
+		physicalDefense:0,
+		magicDefense:0,
+		physicalArmor:0,
+		magicArmor:0,
+		healCost:0,
+		healRegen:0
+	};
+	this.vitals = {
+		name:"",
+		race: {},
+		level: 0,
+		hitDice: 0,
+		manaDice: 0,
+		maxHitPoints: 0,
+		maxMagicPoints: 0,
+		currentHitPoints:0,
+		currentMagicPoints: 0,
+		bloodedValue: 0,
+		criticalValue: 0,
+		experiencePoints:0,
+		classType:{},
+		status: ""
+	};
+	this.inventory={};
+};

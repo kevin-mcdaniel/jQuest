@@ -1,0 +1,118 @@
+var initializePlayer = function(entity, name, selectedRace, selectedProfession, bonusArray){
+	var playerWeapon, playerArmor, playerWand, playerSymbol, playerAccessory;
+	
+	playerWeapon = {};
+	playerArmor = {};
+	playerWand = {};
+	playerSymbol = {};
+	playerAccessory = {};
+	
+	entity.vitals.name = name;
+	entity.vitals.race = selectedRace;
+	entity.vitals.profession = selectedProfession;
+	
+	updatePlayer(entity, bonusArray, 1);
+	equipPlayer(entity, profession[selectedProfession].startingWeapon, "weapon");
+	equipPlayer(entity, profession[selectedProfession].startingArmor, "armor");
+	equipPlayer(entity, profession[selectedProfession].startingWand, "wand");
+	equipPlayer(entity, profession[selectedProfession].startingSymbol, "holySymbol");
+	equipPlayer(entity, profession[selectedProfession].startingAccessory, "accessory");
+	
+};
+
+var updatePlayer = function(entity, bonusArray, levelBonus){
+	
+	var myRace = races[entity.vitals.race];
+	var myProfession = profession[entity.vitals.profession];
+	//Generate Attributes
+	var strength = 1 + myRace.strength + myProfession.strength + bonusArray.strength;
+	var dexterity = 1 + myRace.dexterity + myProfession.dexterity + bonusArray.dexterity;
+	var toughness = 1 + myRace.toughness + myProfession.toughness + bonusArray.toughness;
+	var willpower = 1 + myRace.willpower + myProfession.willpower + bonusArray.willpower;
+	var mental = 1 + myRace.mental + myProfession.mental + bonusArray.mental;
+	var hitPoints = toughness + (levelBonus + entity.vitals.level) * (myRace.hitDice + myProfession.hitDice); 
+	var magicPoints = willpower + mental + (levelBonus + entity.vitals.level) * (myRace.mana + myProfession.mana); 
+	
+	//Assign Values
+	entity.attributes.strength = strength;
+	entity.attributes.dexterity = dexterity;
+	entity.attributes.toughness = toughness;
+	entity.attributes.willpower = willpower;
+	entity.attributes.mental = mental;
+	entity.combat.initiative = dexterity;
+	entity.combat.physicalAttack = strength + dexterity;
+	entity.combat.magicAttack = mental + willpower;
+	entity.combat.physicalDamage = strength + dexterity;
+	entity.combat.magicDamage = mental;
+	entity.combat.physicalDefense = strength + dexterity;
+	entity.combat.magicDefense = mental + willpower;
+	entity.combat.heal = willpower;
+	entity.vitals.level = levelBonus + entity.vitals.level;
+	entity.vitals.hitDice = myRace.hitDice + myProfession.hitDice;
+	entity.vitals.manaDice = myRace.mana + myProfession.mana;
+	entity.vitals.maxHitPoints = hitPoints;
+	entity.vitals.currentHitPoints = hitPoints;
+	entity.vitals.maxMagicPoints = magicPoints;
+	entity.vitals.currentMagicPoints = magicPoints;
+	entity.vitals.bloodedValue = hitPoints * .5;
+	entity.vitals.criticalValue = hitPoints * .25;
+		
+};
+
+/*var entityMap = {
+	attributes : { 
+		strength: 1 + races.strength + profession.strength + bonusArray.strength,
+		dexterity: 1 + races.dexterity + profession.dexterity + bonusArray.dexterity,
+		toughness: 1 + races.toughness + profession.toughness + bonusArray.toughness,
+		willpower: 1 + races.willpower + profession.willpower + bonusArray.willpower,
+		mental: 1 + races.mental + profession.mental + bonusArray.mental
+	},
+	equipment : {
+		armor : {},
+		weapon : {},
+		wand: {},
+		accessory: {},
+		gold: 0
+	},
+	combat:{
+		initiative: dexterity,
+		physcialAttack:strength + dexterity,
+		magicAttack:mental + willpower,
+		physicalDamage: strength + dexterity,
+		magicDamage: mental + willpower,
+		physicalDefense: strength + dexterity,
+		magicDefense: mental + willpower,
+		heal: willpower
+	}, vitals:{
+		name:name,
+		race: races,
+		level: 1,
+		hitDice: races.hitDice + profession.hitDice,
+		manaDice: races.mana + profession.mana,
+		maxHitPoints: toughness + level * hitDice,
+		maxMana: willpower + mental + level * manaDice,
+		currentHitPoints:0,
+		currentMana: 0,
+		bloodedValue: maxHitPoints * .5,
+		criticalValue:maxHitPoints * .25,
+		experiencePoints:0,
+		classType:profession
+	}
+	
+	
+}*/
+
+var bonusArray = {
+	strength:3,
+	dexterity:1,
+	toughness:2,
+	willpower:1,
+	mental:0
+}
+
+//initializePlayer(player, "Alrick", "dwarf", "fighter",{strength: 1,dexterity: 1, toughness: 1, willpower: 1, mental: 1});	
+console.log(player);
+console.log(enemy);
+//initializePlayer(enemy, "Derek", "human", "thief", {strength: 1,dexterity: 1, toughness: 1, willpower: 1, mental: 1});
+console.log(player);
+console.log(enemy);

@@ -1,0 +1,42 @@
+<!--DOCTYPE html -->
+<html>
+<head>
+	
+	<script src="scripts/master.js" type="text/javascript"> </script>	
+</head>
+<body>
+	
+<div id="combatZone" style="width:100%; float:none; clear:both; overflow:hidden;">
+	<div style="overflow:hidden;">
+	<div class="js-ally" style="float:left; margin-right:10px;">
+		<h2>Player</h2>
+		<div>Name:<span class="js-name"></span></div>
+		<div>Hit Points: <span class="js-hitPoints"></span></div>
+		<div>Magic Points: <span class="js-magicPoints"></span></div>
+	</div>
+	<div class="js-enemy" style="float:left;">
+		<h2>Opponent</h2>
+		<div>Name:<span class="js-name"></span></div>
+		<div>Hit Points: <span class="js-hitPoints"></span></div>
+		<div>Magic Points:<span class="js-magicPoints"></span></div>
+	</div>
+	</div>
+	<div class="width:100%; clear:both; float:none;">
+	<button id="btnAttack">Physical Attack</button>
+	<button id="btnMagic">Magical Attack</button>
+	<button id="btnHeal">Heal</button>
+	</div>
+</div>
+
+<div id="characterSheet" style="float:left;">
+	<h2>Player:</h2>
+	<script>characterSheet(player);</script>
+</div>
+
+<div id="enemySheet" style="float:left">
+	<h2>Opponent:</h2>
+	<script>characterSheet(enemy);</script>
+</div>
+
+</body>
+</html>

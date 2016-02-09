@@ -96,6 +96,7 @@ var entity = {
 		armor : {},
 		weapon : {},
 		wand: {},
+		holySymbol: {},
 		accessory: {},
 		gold: 0
 	},
@@ -126,10 +127,10 @@ var entity = {
 		experiencePoints:0,
 		classType:{},
 		status: ""
-	}
+	}, inventory:{}
 }
 
-var player = new Object();
+var player = Object.create(entity);
 
 var initializePlayer = function(name, race, profession, bonusArray){
 	var playerWeapon, playerArmor, playerWand, playerSymbol, playerAccessory;
@@ -193,11 +194,14 @@ var updatePlayer = function(bonusArray, levelBonus){
 }
 
 var equipPlayer = function(item, slot){
+	//var unequippedItem = player.equipment[slot];
+	player.equipment[slot] = item;
+	//player.inventory.push(slot, unequippedItem);
 	
 }
 
 
-var entityMap = {
+/*var entityMap = {
 	attributes : { 
 		strength: 1 + races.strength + profession.strength + bonusArray.strength,
 		dexterity: 1 + races.dexterity + profession.dexterity + bonusArray.dexterity,
@@ -238,7 +242,7 @@ var entityMap = {
 	}
 	
 	
-}
+}*/
 
 
 ////////////////////////////////////////////////////
@@ -246,7 +250,7 @@ var entityMap = {
 // Enchantment cost = itemcost * bonus number
 // add ItemAttribute to entity and requiredAttribute to equipmentArrays - magic: mental + willpower physical: Strength + dexterity
 // have to add combat and vitals after entity was created to reference entity attributes
-
+var characterSheet = function(){
 	console.log(player.vitals.name + ' ' + player.vitals.race + ' ' + player.vitals.classType);
 	console.log('Level ' + player.vitals.level);
 	console.log('');
@@ -278,8 +282,8 @@ var entityMap = {
 	console.log('Accessory: ' + player.equipment.accessory.name);
 	console.log('Wand: ' + player.equipment.wand.name);
 	console.log('Holy Symbol: ' + player.equipment.holySymbol.name);
-	console.log('Weapon: ' + player.equipment.weapon.name);
+	console.log('Weapon: ' + player.equipment.weapon.name);	
+};
 	
-	
-	
-	
+initializePlayer("Alrick", "dwarf", "fighter",{strength: 1,dexterity: 1, toughness: 1, willpower: 1, mental: 1});	
+characterSheet();
